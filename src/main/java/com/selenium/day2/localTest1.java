@@ -18,6 +18,10 @@ public class localTest1 {
         //根据链接定位
         //driver.findElement(By.linkText("新闻")).click();
         //根据部分链接定位
-        driver.findElement(By.partialLinkText("新")).click();
+        //driver.findElement(By.partialLinkText("新")).click();
+        //根据xpath定位
+        //driver.findElement(By.xpath(".//*[@id = 'kw']")).sendKeys("selenium");
+        //根据css定位
+        driver.findElement(By.cssSelector("#kw")).sendKeys("test");
     }
 }
