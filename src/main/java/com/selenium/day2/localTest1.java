@@ -19,6 +19,5 @@ public class localTest1 {
         //driver.findElement(By.linkText("新闻")).click();
         //根据部分链接定位
         driver.findElement(By.partialLinkText("新")).click();
-
     }
 }
