@@ -167,14 +167,18 @@ public class ActionSelenium {
         }
 
         driver.findElement(By.className("js-avator-link")).click();
+
+        String jsString2 = "document.getElementById('upload').style.display='block'";
+        JavascriptExecutor js2 = (JavascriptExecutor) driver;
+        js2.executeScript(jsString2);
         try {
             Thread.sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        WebElement element = driver.findElement(By.xpath("html/body/div[9]/div/div[2]/div/div/div[1]/div[2]/form/input[2]"));
-        element.isEnabled();
-        element.sendKeys("C:\\Users\\lenovo\\Pictures\\Saved Pictures\\583cedde8742f.jpg");
+
+        driver.findElement(By.id("upload")).sendKeys("C:\\Users\\lenovo\\Pictures\\Saved Pictures\\583cedde8742f.jpg");
+
     }
 
     public static void main(String[] args){
