@@ -31,6 +31,7 @@ public class ActionSelenium {
         //user.sendKeys("17816873856");
 
         try {
+
             Thread.sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
