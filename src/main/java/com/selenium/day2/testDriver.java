@@ -9,12 +9,12 @@ public class testDriver {
         //    firefox浏览器启动
         WebDriver driver;
          //设置环境变量，添加firefox的安装路径
-         System.setProperty("webdriver.firefox.bin","E:\\firefox\\Firefox.exe");
+        System.setProperty("webdriver.firefox.bin", "C:\\Program Files (x86)\\Mozilla Firefox\\firefox.exe");
         //实例化一个对象firefox
         driver = new FirefoxDriver();
         String testUrl = "http://www.baidu.com";
         driver.get(testUrl);
-        driver.quit();
+        //driver.quit();
 
 
         /**

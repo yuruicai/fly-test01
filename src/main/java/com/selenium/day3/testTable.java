@@ -15,21 +15,24 @@ public class testTable {
         driver = new FirefoxDriver();
         String url = "C:\\Users\\lenovo\\IdeaProjects\\Test\\src\\main\\resources\\html\\table.html";
         driver.get(url);
+        //System.out.println(driver.findElement(By.tagName("table")));
+
         //定位table
         WebElement Table = driver.findElement(By.tagName("table"));
         //findElement他是定位单一一个元素的方法，定位一组方法我们需要使用findElements
-        // Table.findElement(By.tagName("tr"));
+        //Table.findElement(By.tagName("tr"));
         List<WebElement> rows = Table.findElements(By.tagName("tr"));
-        for (WebElement row:rows){
+        for(WebElement row:rows){
             List<WebElement> tds = row.findElements(By.tagName("td"));
-            for (WebElement td:tds){
+            for(WebElement td:tds){
                 String value = td.getText();
-                if (value.equals(str)||value.equals(str1)){
+                if(value.equals(str)|| value.equals(str1)){
                     System.out.println(value);
                 }else {
-                    System.out.println("error"+"\n");
+                    System.out.println("error");
                 }
             }
         }
+
     }
 }
