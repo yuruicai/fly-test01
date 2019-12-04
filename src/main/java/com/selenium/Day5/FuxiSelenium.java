@@ -25,7 +25,7 @@ public class FuxiSelenium {
             e.printStackTrace();
         }
         driver.findElement(By.id("js-signin-btn")).click();
-        driver.findElement(By.name("email")).sendKeys("17186873856");
+        driver.findElement(By.name("email")).sendKeys("1716873856");
         driver.findElement(By.className("js-loginPassword")).sendKeys("Summer123");
         WebElement NodeElement = driver.findElement(By.className("rlf-autoin"));
         NodeElement.findElement(By.tagName("input"));
