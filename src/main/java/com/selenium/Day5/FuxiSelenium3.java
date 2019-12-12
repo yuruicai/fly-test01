@@ -7,7 +7,6 @@ import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 
-import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -207,6 +206,53 @@ public class FuxiSelenium3 {
         }
         //driver.close();
     }
+    public void WebForm(){
+        WebElement user = driver.findElement(By.className("xa-emailOrPhone"));
+        user.sendKeys("17816873856");
+        WebElement password = driver.findElement(By.name("password"));
+        password.sendKeys("Summer123");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.id("signup-form")).submit();
+
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void SelectOption(){
+        driver.get("https://www.imooc.com/user/setprofile");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.className("js-edit-info")).click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //先通过id找到编辑个人信息的整个表单；在通过性别name找到性别单选框的list
+        WebElement userForm = driver.findElement(By.id("profile"));
+        userForm.findElement(By.id("job")).click();
+        List<WebElement> JobList = userForm.findElements(By.tagName("option"));
+        System.out.println(JobList.size());
+        JobList.get(5).click();
+
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        driver.close();
+    }
 
 
     public static void main(String args[]) throws AWTException {
@@ -215,8 +261,10 @@ public class FuxiSelenium3 {
         fuxiSelenium3.Login();
         //fuxiSelenium3.Rario();
         //fuxiSelenium3.UpFile();
-        fuxiSelenium3.UpFileTwo();
+        //fuxiSelenium3.UpFileTwo();
         //fuxiSelenium3.Button();
         //fuxiSelenium3.CheckBox();
+        //fuxiSelenium3.WebForm();
+        fuxiSelenium3.SelectOption();
     }
 }
