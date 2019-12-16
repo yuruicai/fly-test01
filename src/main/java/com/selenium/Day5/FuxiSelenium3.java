@@ -6,6 +6,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.Select;
 
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
@@ -254,6 +255,34 @@ public class FuxiSelenium3 {
         driver.close();
     }
 
+    public void SelectOptionSelenium(){
+        driver.get("https://www.imooc.com/user/setprofile");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.className("js-edit-info")).click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //先通过id找到编辑个人信息的整个表单；在通过性别name找到性别单选框的list
+        WebElement userForm = driver.findElement(By.id("profile"));
+        WebElement job = userForm.findElement(By.id("job"));
+        Select DownList = new Select(job);
+        DownList.selectByIndex(3);
+
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        //driver.close();
+    }
+
+
 
     public static void main(String args[]) throws AWTException {
         FuxiSelenium3 fuxiSelenium3 = new FuxiSelenium3();
@@ -265,6 +294,7 @@ public class FuxiSelenium3 {
         //fuxiSelenium3.Button();
         //fuxiSelenium3.CheckBox();
         //fuxiSelenium3.WebForm();
-        fuxiSelenium3.SelectOption();
+        //fuxiSelenium3.SelectOption();
+        fuxiSelenium3.SelectOptionSelenium();
     }
 }
