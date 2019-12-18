@@ -8,6 +8,7 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.Select;
 
+import javax.swing.*;
 import java.awt.*;
 import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
@@ -282,7 +283,8 @@ public class FuxiSelenium3 {
             e.printStackTrace();
         }
         DownList.selectByVisibleText("页面重构设计");
-
+        //deselectBy 方法适用于下拉框多选
+        // DownList.deselectByIndex(18);
         try {
             Thread.sleep(2000);
         } catch (InterruptedException e) {
@@ -290,13 +292,35 @@ public class FuxiSelenium3 {
         }
         //driver.close();
     }
+    public  void MoseAction(){
+        driver.get("https://www.imooc.com/");
+        //WebElement LoginElement = driver.findElement(By.id("js-signin-btn"));
+        Actions MoseActions = new Actions(driver);
+        //鼠标左击事件，点击登录按钮
+        //MoseActions.click(LoginElement).perform();
+
+        /**
+         * 先定位需要悬停的菜单栏，鼠标悬停在左侧菜单栏，然后左侧展示出一个大列表，在大列表中找到自己想要找的元素
+         * */
+        List<WebElement> MenuElementList = driver.findElements(By.className("item"));
+        WebElement MobileElement = MenuElementList.get(1);
+        MoseActions.moveToElement(MobileElement).perform();
+
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.findElement(By.linkText("小程序")).click();
+
+    }
 
 
 
     public static void main(String args[]) throws AWTException {
         FuxiSelenium3 fuxiSelenium3 = new FuxiSelenium3();
         fuxiSelenium3.Init();
-        fuxiSelenium3.Login();
+        //fuxiSelenium3.Login();
         //fuxiSelenium3.Rario();
         //fuxiSelenium3.UpFile();
         //fuxiSelenium3.UpFileTwo();
@@ -304,6 +328,7 @@ public class FuxiSelenium3 {
         //fuxiSelenium3.CheckBox();
         //fuxiSelenium3.WebForm();
         //fuxiSelenium3.SelectOption();
-        fuxiSelenium3.SelectOptionSelenium();
+        //fuxiSelenium3.SelectOptionSelenium();
+        fuxiSelenium3.MoseAction();
     }
 }
