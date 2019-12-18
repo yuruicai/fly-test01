@@ -242,6 +242,7 @@ public class FuxiSelenium3 {
         //先通过id找到编辑个人信息的整个表单；在通过性别name找到性别单选框的list
         WebElement userForm = driver.findElement(By.id("profile"));
         userForm.findElement(By.id("job")).click();
+        //通过index方法选择；先找到列表
         List<WebElement> JobList = userForm.findElements(By.tagName("option"));
         System.out.println(JobList.size());
         JobList.get(5).click();
@@ -271,8 +272,16 @@ public class FuxiSelenium3 {
         //先通过id找到编辑个人信息的整个表单；在通过性别name找到性别单选框的list
         WebElement userForm = driver.findElement(By.id("profile"));
         WebElement job = userForm.findElement(By.id("job"));
+        //通过selenium自带的select方法，选择下拉框中的元素
         Select DownList = new Select(job);
-        DownList.selectByIndex(3);
+        //DownList.selectByIndex(3);
+        DownList.selectByValue("18");
+        try {
+            Thread.sleep(3000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        DownList.selectByVisibleText("页面重构设计");
 
         try {
             Thread.sleep(2000);
