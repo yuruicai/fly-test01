@@ -315,6 +315,18 @@ public class FuxiSelenium3 {
 
     }
 
+    public void SwithIframe(){
+        //id = ueditor_0
+        driver.get("https://www.imooc.com/article/publish#");
+        try{
+            driver.findElement(By.id("ueditor_0")).sendKeys("Mushishi");
+        }catch (Exception e){
+            System.out.println("定位直接输入错误");
+        }
+        WebElement IframeElement = driver.findElement(By.id("ueditor_0"));
+        driver.switchTo().frame(IframeElement);
+    }
+
 
 
     public static void main(String args[]) throws AWTException {
