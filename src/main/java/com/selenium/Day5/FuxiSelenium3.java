@@ -315,6 +315,9 @@ public class FuxiSelenium3 {
 
     }
 
+    /**
+     * Iframe处理及无焦点问题分析
+     * */
     public void SwithIframe(){
         //id = ueditor_0
         driver.get("https://www.imooc.com/article/publish#");
@@ -323,8 +326,21 @@ public class FuxiSelenium3 {
         }catch (Exception e){
             System.out.println("定位直接输入错误");
         }
+
         WebElement IframeElement = driver.findElement(By.id("ueditor_0"));
         driver.switchTo().frame(IframeElement);
+        WebElement Ueditor = driver.findElement(By.tagName("p"));
+        //Ueditor.click();
+        Actions MoseActions = new Actions(driver);
+        MoseActions.moveToElement(Ueditor).click().sendKeys("This is real test!").perform();
+        //MoseActions.sendKeys("test 2222").perform();
+        //Ueditor.sendKeys("this is test!");
+        try {
+            Thread.sleep(1000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.close();
     }
 
 
@@ -332,7 +348,7 @@ public class FuxiSelenium3 {
     public static void main(String args[]) throws AWTException {
         FuxiSelenium3 fuxiSelenium3 = new FuxiSelenium3();
         fuxiSelenium3.Init();
-        //fuxiSelenium3.Login();
+        fuxiSelenium3.Login();
         //fuxiSelenium3.Rario();
         //fuxiSelenium3.UpFile();
         //fuxiSelenium3.UpFileTwo();
@@ -341,6 +357,7 @@ public class FuxiSelenium3 {
         //fuxiSelenium3.WebForm();
         //fuxiSelenium3.SelectOption();
         //fuxiSelenium3.SelectOptionSelenium();
-        fuxiSelenium3.MoseAction();
+        //fuxiSelenium3.MoseAction();
+        fuxiSelenium3.SwithIframe();
     }
 }
