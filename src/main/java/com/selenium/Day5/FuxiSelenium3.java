@@ -327,8 +327,9 @@ public class FuxiSelenium3 {
             System.out.println("定位直接输入错误");
         }
 
-        WebElement IframeElement = driver.findElement(By.id("ueditor_0"));
-        driver.switchTo().frame(IframeElement);
+
+        //WebElement IframeElement = driver.findElement(By.id("ueditor_0"));
+        driver.switchTo().frame("ueditor_0");
         WebElement Ueditor = driver.findElement(By.tagName("p"));
         //Ueditor.click();
         Actions MoseActions = new Actions(driver);
