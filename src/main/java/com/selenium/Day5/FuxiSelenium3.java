@@ -14,6 +14,7 @@ import java.awt.datatransfer.Clipboard;
 import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.List;
+import java.util.Set;
 
 public class FuxiSelenium3 {
     public WebDriver driver;
@@ -312,7 +313,11 @@ public class FuxiSelenium3 {
             e.printStackTrace();
         }
         driver.findElement(By.linkText("小程序")).click();
-
+        try {
+            Thread.sleep(5000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
     }
 
     /**
@@ -344,6 +349,28 @@ public class FuxiSelenium3 {
         driver.close();
     }
 
+    public void WindowsHandle(){
+
+        //拿到所有窗口
+        Set<String> Handles = driver.getWindowHandles();
+        String CurHandle = driver.getWindowHandle();
+
+        for (String s:Handles){
+            if(s.equals(CurHandle)){
+                continue;
+            }else {
+                driver.switchTo().window(s);
+            }
+        }
+        driver.findElement(By.className("shizan-name")).click();
+        try {
+            Thread.sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.close();
+    }
+
 
 
     public static void main(String args[]) throws AWTException {
@@ -358,7 +385,8 @@ public class FuxiSelenium3 {
         //fuxiSelenium3.WebForm();
         //fuxiSelenium3.SelectOption();
         //fuxiSelenium3.SelectOptionSelenium();
-        //fuxiSelenium3.MoseAction();
-        fuxiSelenium3.SwithIframe();
+        fuxiSelenium3.MoseAction();
+        //fuxiSelenium3.SwithIframe();
+        fuxiSelenium3.WindowsHandle();
     }
 }
