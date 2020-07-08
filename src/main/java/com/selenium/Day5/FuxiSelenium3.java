@@ -333,8 +333,8 @@ public class FuxiSelenium3 {
         }
 
 
-        //WebElement IframeElement = driver.findElement(By.id("ueditor_0"));
-        driver.switchTo().frame("ueditor_0");
+        WebElement IframeElement = driver.findElement(By.id("ueditor_0"));
+        driver.switchTo().frame(IframeElement);
         WebElement Ueditor = driver.findElement(By.tagName("p"));
         //Ueditor.click();
         Actions MoseActions = new Actions(driver);
