@@ -6,7 +6,10 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedCondition;
+import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.Select;
+import org.openqa.selenium.support.ui.WebDriverWait;
 
 import javax.swing.*;
 import java.awt.*;
@@ -15,6 +18,9 @@ import java.awt.datatransfer.StringSelection;
 import java.awt.event.KeyEvent;
 import java.util.List;
 import java.util.Set;
+import java.util.concurrent.TimeUnit;
+
+import static java.lang.Thread.sleep;
 
 public class FuxiSelenium3 {
     public WebDriver driver;
@@ -24,13 +30,13 @@ public class FuxiSelenium3 {
         driver = new FirefoxDriver();
         driver.get("http://www.imooc.com");
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.id("js-signin-btn")).click();
         try {
-            Thread.sleep(1000);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -42,13 +48,13 @@ public class FuxiSelenium3 {
         WebElement password = driver.findElement(By.name("password"));
         password.sendKeys("Summer123");
         try {
-            Thread.sleep(1000);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.className("moco-btn")).click();
         try {
-            Thread.sleep(5000);
+            sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -56,13 +62,13 @@ public class FuxiSelenium3 {
     public void Rario(){
         driver.get("https://www.imooc.com/user/setprofile");
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.className("js-edit-info")).click();
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -86,7 +92,7 @@ public class FuxiSelenium3 {
          //List<WebElement> SexList= driver.findElements(By.name("sex"));
         //SexList.get(2).click();
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -98,13 +104,13 @@ public class FuxiSelenium3 {
         System.out.println(Box.isEnabled());
         System.out.println(Box.isSelected());
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         Box.click();
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -142,7 +148,7 @@ public class FuxiSelenium3 {
         //sendkeys只针对标签是input类型
         driver.findElement(By.id("upload")).sendKeys("C:\\Users\\lenovo\\Desktop\\58e72540c5fcd.jpg");
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -151,7 +157,7 @@ public class FuxiSelenium3 {
     public void UpFileTwo() throws AWTException {
         driver.get("https://www.imooc.com/user/setbindsns");
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -188,7 +194,7 @@ public class FuxiSelenium3 {
         robot.keyRelease(KeyEvent.VK_V);
 
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -203,7 +209,7 @@ public class FuxiSelenium3 {
         robot.keyRelease(KeyEvent.VK_ENTER);
 
         try {
-            Thread.sleep(4000);
+            sleep(4000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -215,14 +221,14 @@ public class FuxiSelenium3 {
         WebElement password = driver.findElement(By.name("password"));
         password.sendKeys("Summer123");
         try {
-            Thread.sleep(1000);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.id("signup-form")).submit();
 
         try {
-            Thread.sleep(5000);
+            sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -231,13 +237,13 @@ public class FuxiSelenium3 {
     public void SelectOption(){
         driver.get("https://www.imooc.com/user/setprofile");
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.className("js-edit-info")).click();
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -250,7 +256,7 @@ public class FuxiSelenium3 {
         JobList.get(5).click();
 
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -261,13 +267,13 @@ public class FuxiSelenium3 {
     public void SelectOptionSelenium(){
         driver.get("https://www.imooc.com/user/setprofile");
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.className("js-edit-info")).click();
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -279,7 +285,7 @@ public class FuxiSelenium3 {
         //DownList.selectByIndex(3);
         DownList.selectByValue("18");
         try {
-            Thread.sleep(3000);
+            sleep(3000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -287,7 +293,7 @@ public class FuxiSelenium3 {
         //deselectBy 方法适用于下拉框多选
         // DownList.deselectByIndex(18);
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -308,13 +314,13 @@ public class FuxiSelenium3 {
         MoseActions.moveToElement(MobileElement).perform();
 
         try {
-            Thread.sleep(1000);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
         driver.findElement(By.linkText("小程序")).click();
         try {
-            Thread.sleep(5000);
+            sleep(5000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -342,7 +348,7 @@ public class FuxiSelenium3 {
         //MoseActions.sendKeys("test 2222").perform();
         //Ueditor.sendKeys("this is test!");
         try {
-            Thread.sleep(1000);
+            sleep(1000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
@@ -353,7 +359,7 @@ public class FuxiSelenium3 {
 
         //拿到所有窗口
         Set<String> Handles = driver.getWindowHandles();
-        String CurHandle = driver.getWindowHandle();
+        String CurHandle = driver.getWindowHandle();     //cueHandle是第一个窗口，我们需要循环切到最后一个最新的窗口
 
         for (String s:Handles){
             if(s.equals(CurHandle)){
@@ -364,10 +370,90 @@ public class FuxiSelenium3 {
         }
         driver.findElement(By.className("shizan-name")).click();
         try {
-            Thread.sleep(2000);
+            sleep(2000);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
+        //driver.close();
+    }
+
+    public void AlertWindowss(){
+        WebDriver driver;
+        driver = new FirefoxDriver();
+        driver.get("C:\\Users\\lenovo\\IdeaProjects\\Test\\src\\main\\resources\\html");                     //get网址
+        /**
+         * 获取并操作只有确定按钮的弹窗
+         * */
+        driver.findElement(By.id("alert")).click();
+        driver.switchTo().alert().accept();           //点击确定按钮
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        /**
+         * 获取并操作有确定按钮和取消按钮的弹窗
+         * */
+        driver.findElement(By.id("sure")).click();
+        driver.switchTo().alert().dismiss();             //弹窗中展示确认取消按钮时，点击取消
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.navigate().refresh();                       //刷新页面，否则不能回头原页面，获取不到后面的元素
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        driver.findElement(By.id("sure")).click();
+        driver.switchTo().alert().accept();              //弹窗中展示确认取消按钮时，点击确定
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.navigate().refresh();
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        /**
+         * 获取并操作有输入框的弹窗，输入后点击确定
+         * */
+
+        driver.findElement(By.id("three")).click();
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+        driver.switchTo().alert().sendKeys("nihaoya");         //有输入框的弹窗
+        driver.switchTo().alert().accept();                      //输入后点击确定
+        try {
+            sleep(2000);
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public void Wait(){
+        //隐式等待
+        //driver.manage().timeouts().implicitlyWait(20, TimeUnit.SECONDS);
+        //显示等待
+        driver.get("http://www.imooc.com");
+        WebDriverWait wait = new WebDriverWait(driver, 10);
+        try{
+            System.out.println(wait.until(ExpectedConditions.presenceOfElementLocated(By.id("js-signin-btn"))));          //10ms内找到登录按钮的元素“js-signin-btn”
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         driver.close();
     }
 
@@ -375,8 +461,9 @@ public class FuxiSelenium3 {
 
     public static void main(String args[]) throws AWTException {
         FuxiSelenium3 fuxiSelenium3 = new FuxiSelenium3();
-        fuxiSelenium3.Init();
-        fuxiSelenium3.Login();
+        //fuxiSelenium3.Init();
+        //fuxiSelenium3.Wait();
+        //fuxiSelenium3.Login();
         //fuxiSelenium3.Rario();
         //fuxiSelenium3.UpFile();
         //fuxiSelenium3.UpFileTwo();
@@ -385,8 +472,10 @@ public class FuxiSelenium3 {
         //fuxiSelenium3.WebForm();
         //fuxiSelenium3.SelectOption();
         //fuxiSelenium3.SelectOptionSelenium();
-        fuxiSelenium3.MoseAction();
+        //fuxiSelenium3.MoseAction();
         //fuxiSelenium3.SwithIframe();
-        fuxiSelenium3.WindowsHandle();
+        //fuxiSelenium3.WindowsHandle();
+        fuxiSelenium3.AlertWindowss();
+
     }
 }

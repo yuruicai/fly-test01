@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<input type="button" id="alert" onclick="display_alert()" value="弹窗">
+<input type="button" id="sure" onclick="disp_confirm()" value="确认or取消">
+<input type="button" id="three" onclick="disp_prompt()" value="输入型弹窗">
+<form>
+    <label>A</label>:<input type="text" value="1" id="testA">
+    <label>B</label>:<input type="text" value="1" id="testB">
+    <input type="button" onclick="sum()" value="A与B相加">
+
+</form>
+</body>
+<script>
+    function display_alert(){
+        alert("This is test!");
+    }
+
+     function disp_confirm(){
+        var a = confirm("test");
+        alert(a);
+     }
+
+     function disp_prompt(){
+        var txt = prompt("你好，丫丫");
+        alert("你输入的结果是 :"+txt);
+     }
+
+      function sum(){
+        var a = document.getElementById("testA");
+        var b = document.getElementById("testB");
+        alert("你输入的结果是 :"+(parseFloat(a.value) + parseFloat(b.value)));
+     }
+
+
+</script>
+</html>
